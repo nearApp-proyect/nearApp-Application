@@ -66,9 +66,7 @@ const VenderArticulo = (props) => {
                     <CFormGroup>                                              
                         <b>Categoría</b>
                         <CInput placeholder="Ejemplo: Celulares"></CInput>                        
-                    </CFormGroup>
-                    <CListGroup>
-                    </CListGroup>
+                    </CFormGroup>                    
                 </CCardBody>
             </CCard>
             <CCard>
