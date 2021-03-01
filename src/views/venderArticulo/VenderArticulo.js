@@ -59,9 +59,13 @@ const VenderArticulo = (props) => {
                             <CCol><CInputFile /></CCol>
                         </CRow>
                     </CFormGroup>
-                    <CFormGroup>
+                    <CFormGroup>                                              
                         <b>Descripción adicional</b>
-                        <CInput placeholder="Ejemplo: Tiene detalle en la pantalla, 3 meses de uso, etc"></CInput>
+                        <CInput placeholder="Ejemplo: Tiene detalle en la pantalla, 3 meses de uso, etc"></CInput>                        
+                    </CFormGroup>
+                    <CFormGroup>                                              
+                        <b>Categoría</b>
+                        <CInput placeholder="Ejemplo: Celulares"></CInput>                        
                     </CFormGroup>
                     <CListGroup>
                     </CListGroup>
