@@ -13,6 +13,12 @@ const _nav =  [
     }
   },
   {
+    _tag: 'CSidebarNavItem',
+    name: 'Vender',
+    to: '/venderArticulo',
+    icon: <CIcon name="cil-dollar" customClasses="c-sidebar-nav-icon"/>,    
+  },
+  {
     _tag: 'CSidebarNavTitle',
     _children: ['Theme']
   },
