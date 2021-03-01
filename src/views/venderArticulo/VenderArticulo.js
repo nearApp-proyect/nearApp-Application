@@ -1,24 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import Swal from "sweetalert2";
+import React from 'react'
 import {
     CButton,
     CCard,
-    CCardBody,
-    CCardFooter,
+    CCardBody,    
     CCardHeader,
     CCol,
     CRow,
     CLabel,
-    CListGroup,
-    CListGroupItem,
+    CListGroup,    
     CInput,
     CFormGroup,
     CSelect,
     CInputFile,
     CInputRadio
 } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { freeSet } from '@coreui/icons'
 import { Link } from 'react-router-dom';
 
 const VenderArticulo = (props) => {
