@@ -18,7 +18,6 @@ import {
   CImg,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
-import { render } from "enzyme/build";
 
 const EditUser = () => {
   return (

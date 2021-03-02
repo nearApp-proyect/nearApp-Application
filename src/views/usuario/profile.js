@@ -18,6 +18,7 @@ import {
   CWidgetProgressIcon,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
+import UserPosts from "./userPosts";
 
 const WidgetsDropdown = lazy(() => import("../widgets/WidgetsDropdown.js"));
 
@@ -83,6 +84,7 @@ const Profile = () => {
           <CIcon name="cil-chartPie" height="36" />
         </CWidgetProgressIcon>
       </CCardGroup>
+      <UserPosts></UserPosts>
     </div>
   );
 };
