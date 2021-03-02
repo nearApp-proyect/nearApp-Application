@@ -42,29 +42,34 @@ const Profile = () => {
                 className="col-sm-12 text-center"
                 style={{ fontSize: "20px" }}
               >
-                <p>
+                <p className="border">
+                  C.C. 34.567.890
+                  <br />
                   576-6911 Nisi. Carretera
                   <br />
                   Mildura <br />
                   16700323 7828
                   <br />
                 </p>
+                <p className="border">
+                    <b>Tarjeta Registrada: </b>
+                    xxxx.xxxx.xxxx.5646
+                </p>
               </div>
             </CCol>
           </CRow>
         </CCardBody>
         <CCardFooter className="text-center">
-          <CButton color="info">Editar</CButton>
+          <CButton type="button" color="info">Editar</CButton>
         </CCardFooter>
       </CCard>
       <CCardGroup className="mb-6">
-        
         <CWidgetProgressIcon
           header="7"
           text="Productos Vendidos"
           color="gradient-success"
         >
-          <CIcon name="cil-basket" height="36"/>
+          <CIcon name="cil-basket" height="36" />
         </CWidgetProgressIcon>
 
         <CWidgetProgressIcon
@@ -72,15 +77,11 @@ const Profile = () => {
           text="Productos Publicados Activos"
           color="gradient-warning"
         >
-          <CIcon name="cil-basket" height="36"/>
+          <CIcon name="cil-basket" height="36" />
         </CWidgetProgressIcon>
-        <CWidgetProgressIcon
-          header="47%"
-          text="Rentabilidad de Venta"
-        >
-          <CIcon name="cil-chartPie" height="36"/>
+        <CWidgetProgressIcon header="47%" text="Rentabilidad de Venta">
+          <CIcon name="cil-chartPie" height="36" />
         </CWidgetProgressIcon>
-        
       </CCardGroup>
     </div>
   );
