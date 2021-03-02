@@ -15,8 +15,8 @@ import {
   CCarouselItem,
   CCarouselIndicators
 } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { freeSet } from '@coreui/icons'
+import CIcon from '@coreui/icons-react';
+import { freeSet } from '@coreui/icons';
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
