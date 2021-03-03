@@ -4,7 +4,6 @@ import {
   CButton,
   CCard,
   CCardBody,
-  CCardGroup,
   CCol,
   CContainer,
   CForm,
@@ -15,17 +14,20 @@ import {
   CRow
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
+import '../register/Register'
 
 const Login = () => {
+  //Save data
+localStorage.setItem('user', 'prueba');
+localStorage.setItem('password', 12345);
+const usuario = localStorage.getItem('user')
+const contrasenia = localStorage.getItem('password')
   return (
-    <div className="c-app c-default-layout flex-row align-items-center">
-      <center>
-        <h1>NearApp</h1>
-      </center>
+    <center>
+    <div className="c-app c-default-layout flex-row align-items-center" style={{ width: '60%' }}>
       <CContainer>
         <CRow className="justify-content-center">
           <CCol md="8">
-            <CCardGroup>
               <CCard className="p-4">
                 <CCardBody>
                   <CForm>
@@ -37,7 +39,7 @@ const Login = () => {
                           <CIcon name="cil-user" />
                         </CInputGroupText>
                       </CInputGroupPrepend>
-                      <CInput type="text" placeholder="Username" autoComplete="username" />
+                      <CInput type="text" placeholder="Username" autoComplete="username" value ={usuario}/>
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupPrepend>
@@ -45,27 +47,35 @@ const Login = () => {
                           <CIcon name="cil-lock-locked" />
                         </CInputGroupText>
                       </CInputGroupPrepend>
-                      <CInput type="password" placeholder="Password" autoComplete="current-password" />
+                      <CInput type="password" placeholder="Password" autoComplete="current-password" value = {contrasenia}/>
                     </CInputGroup>
                     <CRow>
-                      <CCol xs="6">
+                      <Link to="/index">
                         <CButton color="primary" className="px-4">Login</CButton>
-                      </CCol>
+                      </Link>
                       <CCol xs="6" className="text-right">
                         <CButton color="link" className="px-0">Forgot password?</CButton>
                       </CCol>
-                      <Link to="/register">
-                        <CButton color="primary" className="mt-3" active tabIndex={-1}>Registrate ahora</CButton>
-                      </Link>
+
                     </CRow>
                   </CForm>
                 </CCardBody>
               </CCard>
-            </CCardGroup>
+              <CCard className="text-white bg-primary py-5 d-md-down-none" style={{ width: '100%'}}>
+                <CCardBody className="text-center">
+                  <div>
+                    <h2>No tienes cuenta</h2>
+                    <Link to="/register">
+                      <CButton color="primary" className="mt-3" active tabIndex={-1}>Registrate Ahora</CButton>
+                    </Link>
+                  </div>
+                </CCardBody>
+              </CCard>
           </CCol>
         </CRow>
       </CContainer>
     </div>
+    </center>
   )
 }
 
