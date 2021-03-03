@@ -1,10 +1,4 @@
-import React, { lazy } from "react";
-import {
-  CCard,
-  CCardBody,
-  CCardHeader,
-  CEmbed,
-} from "@coreui/react";
+import React from "react";
 
 import Online from './onlineVenta/online'
 

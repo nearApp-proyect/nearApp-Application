@@ -17,10 +17,17 @@ const _nav =  [
   },
   {
     _tag: 'CSidebarNavItem',
+    name: 'Venta en Vivo',
+    to: '/ventaVivo',
+    icon: <CIcon content={freeSet.cilClock} customClasses="c-sidebar-nav-icon"/>    
+  },
+  {
+    _tag: 'CSidebarNavItem',
     name: 'Mi perfil',
-    to: '/dashboard',
+    to: '/miPerfil',
     icon: <CIcon name="cil-user" customClasses="c-sidebar-nav-icon"/>    
-  }    
+  }
+      
 ]
 
 export default _nav

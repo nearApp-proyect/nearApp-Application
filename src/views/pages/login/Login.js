@@ -16,7 +16,7 @@ import {
 import CIcon from '@coreui/icons-react'
 import '../register/Register'
 
-const Login = () => {
+const Login = (props) => {
   //Save data
 localStorage.setItem('user', 'prueba');
 localStorage.setItem('password', 12345);
@@ -31,7 +31,7 @@ const contrasenia = localStorage.getItem('password')
               <CCard className="p-4">
                 <CCardBody>
                   <CForm>
-                    <h1>Login</h1>
+                    <h1>NearApp</h1>
                     <p className="text-muted">Inicia sesión con tu cuenta</p>
                     <CInputGroup className="mb-3">
                       <CInputGroupPrepend>

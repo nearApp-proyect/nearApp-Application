@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React from "react";
 import { CCol, CImg, CListGroupItem, CRow } from "@coreui/react";
 
 const Coment = (props) => {

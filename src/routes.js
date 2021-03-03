@@ -38,11 +38,18 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'));
 const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
 
+const Login =React.lazy(() => import('./views/pages/login/Login'));
+
 const VenderArticulo = React.lazy(() => import('./views/venderArticulo/VenderArticulo'));
 const ComprarArticulo = React.lazy(() => import('./views/comprarArticulo/ComprarArticulo'));
+const AllOnline = React.lazy(() => import('./views/ventas/AllOnline'));
+
+const Profile = React.lazy(() => import('./views/usuario/profile')); 
+const EditUser = React.lazy(() => import('./views/usuario/editUser')); 
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
+  { path: '/login', exact: true, component: Login },
   { path: '/dashboard', name: 'Principal', component: Dashboard },
   { path: '/theme', name: 'Theme', component: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', component: Colors },
@@ -83,7 +90,10 @@ const routes = [
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/users/:id', exact: true, name: 'User Details', component: User },
   { path: '/venderArticulo', exact: true, name: 'Vender Articulo', component: VenderArticulo},
-  { path: '/comprarArticulo', exact: true, name: 'Comprar Articulo', component: ComprarArticulo}
+  { path: '/comprarArticulo', exact: true, name: 'Comprar Articulo', component: ComprarArticulo},
+  { path: '/miPerfil', exact: true, name: 'Mi perfil', component: Profile},
+  { path: '/miPerfil/editarUsuario', exact: true, name: 'Editar Usuario', component: EditUser}, 
+  { path: '/ventaVivo', exact: true, name: 'Venta en vivo', component: AllOnline},
 ];
 
 export default routes;

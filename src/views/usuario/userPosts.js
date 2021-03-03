@@ -1,24 +1,4 @@
-import React, { lazy } from "react";
-import {
-  CBadge,
-  CButton,
-  CButtonGroup,
-  CCard,
-  CCardGroup,
-  CCardBody,
-  CCardFooter,
-  CCardHeader,
-  CCol,
-  CRow,
-  CForm,
-  CFormGroup,
-  CLabel,
-  CInput,
-  CFormText,
-  CImg,
-} from "@coreui/react";
-import CIcon from "@coreui/icons-react";
-
+import React from "react";
 import UserPost from "./userPost";
 
 

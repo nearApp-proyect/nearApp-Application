@@ -1,23 +1,10 @@
-import React, { lazy } from "react";
-import {
-  CBadge,
-  CButton,
-  CButtonGroup,
-  CCard,
-  CCardGroup,
+import React from "react";
+import {  
+  CCard,  
   CCardBody,
-  CCardFooter,
-  CCardHeader,
-  CCol,
-  CRow,
-  CForm,
-  CFormGroup,
-  CLabel,
-  CInput,
-  CFormText,
+  CCardFooter,  
   CImg,
 } from "@coreui/react";
-import CIcon from "@coreui/icons-react";
 
 const UserPost = (props) => {
   return (

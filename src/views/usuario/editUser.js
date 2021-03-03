@@ -1,10 +1,7 @@
-import React, { lazy } from "react";
-import {
-  CBadge,
-  CButton,
-  CButtonGroup,
-  CCard,
-  CCardGroup,
+import React from "react";
+import {  
+  CButton,  
+  CCard,  
   CCardBody,
   CCardFooter,
   CCardHeader,
@@ -13,11 +10,8 @@ import {
   CForm,
   CFormGroup,
   CLabel,
-  CInput,
-  CFormText,
-  CImg,
+  CInput,   
 } from "@coreui/react";
-import CIcon from "@coreui/icons-react";
 
 const EditUser = () => {
   return (

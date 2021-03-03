@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React from "react";
 import {
   CCard,
   CCardBody,
@@ -13,7 +13,7 @@ const Online = (props) => {
       <CCardHeader>#{props.venta.id} - {props.venta.nombre}</CCardHeader>
       <CCardBody>
         <CEmbed ratio="16by9">
-          <iframe src="https://www.youtube.com/embed/ctV1-yIzZzU" />
+        <iframe title="countdown" width="560" height="315" src="https://www.youtube.com/embed/OYxBTyc0D2I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </CEmbed>
         <ListComents></ListComents>
       </CCardBody>

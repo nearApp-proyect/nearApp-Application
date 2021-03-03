@@ -1,26 +1,19 @@
-import React, { lazy } from "react";
-import {
-  CBadge,
-  CButton,
-  CButtonGroup,
+import React from "react";
+import {  
+  CButton,  
   CCard,
   CCardGroup,
   CCardBody,
   CCardFooter,
   CCardHeader,
-  CCol,
-  CProgress,
-  CRow,
-  CCallout,
-  CImg,
-  CWidgetProgress,
-  CWidgetIcon,
+  CCol,  
+  CRow,  
+  CImg,  
   CWidgetProgressIcon,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import UserPosts from "./userPosts";
-
-const WidgetsDropdown = lazy(() => import("../widgets/WidgetsDropdown.js"));
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
   return (
@@ -61,7 +54,7 @@ const Profile = () => {
           </CRow>
         </CCardBody>
         <CCardFooter className="text-center">
-          <CButton type="button" color="info">Editar</CButton>
+          <Link to="/miPerfil/editarUsuario" className="linkcreate"><CButton type="button" color="info">Editar</CButton></Link>
         </CCardFooter>
       </CCard>
       <CCardGroup className="mb-6">
