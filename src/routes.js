@@ -1,3 +1,4 @@
+//import { construct } from 'core-js/fn/reflect';
 import React from 'react';
 
 const Toaster = React.lazy(() => import('./views/notifications/toaster/Toaster'));
@@ -39,6 +40,7 @@ const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
 const Profile = React.lazy(() => import('./views/usuario/profile'));
 const EditUser = React.lazy(() => import('./views/usuario/editUser'));
+const AllOnline = React.lazy(() => import('./views/ventas/AllOnline'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -82,7 +84,8 @@ const routes = [
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/users/:id', exact: true, name: 'User Details', component: User },
   { path: '/profile', exact: true, name: 'Profile', component: Profile },
-  { path: '/edit', exact: true, name: 'Profile', component: EditUser }
+  { path: '/edit', exact: true, name: 'edit', component: EditUser },
+  { path: '/online', exact: true, name: 'online', component: AllOnline }
 ];
 
 export default routes;
