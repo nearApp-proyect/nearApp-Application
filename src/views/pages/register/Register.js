@@ -135,10 +135,11 @@ const Register = () => {
       "nombre": $("#nombre").val(),
       "apellido": $("#apellido").val(),
       "direccion": $("#direccion").val(),
-      "ciudad": $("user").val(),
+      "ciudad": $("#ciudad").val(),
       "celular": $("#celular").val(),
       "correo": $("#email").val(),
       "password": $("#password").val(),
+      "foto": "avatars/avatar.png",
       "publicacion": [],
       "cometario": [],
       "chatEmi": [],
@@ -148,7 +149,7 @@ const Register = () => {
       resp=>{
         if(resp.data.nickname == $("#user").val()){
           Swal.fire({
-            type:'success',
+            icon:'success',
             text:'Registro realizado con exito',
             showConfirmButton: false,
             timer: 2500

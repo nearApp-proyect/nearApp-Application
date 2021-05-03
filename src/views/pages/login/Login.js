@@ -31,15 +31,30 @@ function login(){
     axios.get('http://localhost:8080/user/login/'+$("#user").val()+"/"+$("#password").val()).then(
       resp =>{
         if(resp.data.nickname == $("#user").val() && resp.data.password == $("#password").val()){
+          let info={
+            "nickname": resp.data.nickname,
+            "tdocumento": resp.data.tdocumento,
+            "documento": resp.data.documento,
+            "nombre": resp.data.nombre,
+            "apellido": resp.data.apellido,
+            "direccion": resp.data.direccion,
+            "ciudad": resp.data.ciudad,
+            "celular": resp.data.celular,
+            "correo": resp.data.correo,
+            "foto":  (resp.data.foto == null) ? "avatars/avatar.png" : resp.data.foto,
+          }
+
+          localStorage.setItem('info',JSON.stringify(info))
+          
           Swal.fire({
-            type:'success',
+            icon:'success',
             text:'Bienvenido '+resp.data.nombre+" "+resp.data.apellido,
             timer:2000
           })
           window.location.href="/index"
         }else{
           Swal.fire({
-            type:'error',
+            icon:'error',
             text:'Usuario y/o contraseña incorrecta',
             timer:2000
           })
@@ -65,7 +80,7 @@ function login(){
                           <CIcon name="cil-user" />
                         </CInputGroupText>
                       </CInputGroupPrepend>
-                      <CInput type="text" placeholder="Username" id="user" name="name" autoComplete="username"/>
+                      <CInput type="text" placeholder="Usuario" id="user" name="name" autoComplete="username"/>
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupPrepend>
@@ -73,14 +88,15 @@ function login(){
                           <CIcon name="cil-lock-locked" />
                         </CInputGroupText>
                       </CInputGroupPrepend>
-                      <CInput type="password" id="password" name="password" placeholder="Password" autoComplete="current-password"/>
+                      <CInput type="password" id="password" name="password" placeholder="Contraseña" autoComplete="current-password"/>
                     </CInputGroup>
                     <CRow>
-                      <CButton onClick={login} color="primary" className="px-4">Ingresar</CButton>
-                      <CCol xs="6" className="text-right">
+                      <CCol className="col-12 justify-content-center">
+                        <CButton onClick={login} color="primary" className="px-4">Ingresar</CButton>
+                      </CCol>
+                      <CCol className="col-12 justify-content-center">
                         <CButton color="link" className="px-0">¿Olvido la contraseña?</CButton>
                       </CCol>
-
                     </CRow>
                   </CForm>
                 </CCardBody>
