@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import {  
   CButton,  
   CCard,
@@ -14,8 +14,33 @@ import {
 import CIcon from "@coreui/icons-react";
 import UserPosts from "./userPosts";
 import { Link } from 'react-router-dom';
+import axios from 'axios'
+import Swal from 'sweetalert2'
+import $ from 'jquery';
 
 const Profile = () => {
+  const[nombre,setNombre]= useState('')
+  const[direccion,setDireccion]= useState('')
+  const[ciudad,setCiudad]= useState('')
+  const[celular,setCelular]= useState('')
+  const[foto,setFoto]= useState('')
+  const[documento,setDocumento]= useState('')
+  const[tdocumento,setTdocumento]= useState('')
+
+  useEffect(()=>{
+    getUser()
+  },[]);
+
+  function getUser(){
+    let data = JSON.parse(localStorage.getItem('info'))
+    setNombre(data.nombre.toUpperCase()+" "+data.apellido.toUpperCase())
+    setDireccion(data.direccion)
+    setCiudad(data.ciudad)
+    setCelular(data.celular)
+    setFoto(data.foto)
+    setDocumento(data.documento)
+    setTdocumento(data.tdocumento)
+  }
   return (
     <div className="col-12 col-sm-12 col-md-12 row justify-content-center">
       <CCard style={{ width: "80%" }}>
@@ -24,25 +49,24 @@ const Profile = () => {
           <CRow className="col-12 justify-content-center">
             <CCol md="4" className="text-center p-4">
               <CImg
-                src={"avatars/6.jpg"}
+                src={foto}
                 className="c-avatar-img"
                 alt="usuario.img"
                 style={{ width: "70%" }}
               />
             </CCol>
             <CCol md="8" className="text-center p-5">
-              <h2 className="card-title">Tanya Gomez</h2>
+              <h2 className="card-title">{nombre}</h2>
               <div
                 className="col-sm-12 text-center"
                 style={{ fontSize: "20px" }}
               >
                 <p className="border">
-                  C.C. 34.567.890
+                  {tdocumento} {documento}
                   <br />
-                  576-6911 Nisi. Carretera
+                  {direccion} - {ciudad}
                   <br />
-                  Mildura <br />
-                  16700323 7828
+                  Celular: {celular}
                   <br />
                 </p>
                 <p className="border">

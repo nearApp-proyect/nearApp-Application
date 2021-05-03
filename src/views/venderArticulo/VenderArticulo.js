@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import {
     CButton,
     CCard,
@@ -14,8 +14,38 @@ import {
     CInputRadio
 } from '@coreui/react'
 import { Link } from 'react-router-dom';
+import axios from 'axios'
+import Swal from 'sweetalert2'
+import $ from 'jquery';
 
 const VenderArticulo = (props) => {
+
+    useEffect(()=>{
+        getCategorias()
+    },[])
+
+    function getCategorias(){
+        axios.get('http://localhost:8080/categoria/all').then(
+            resp =>{
+                $(resp.data).each(function(ind,item){
+                    $("#categoria").append(`<option value="${item.id}">${item.nombre}</option>`)
+                })
+            }
+        )
+    }
+
+    function getProductos(){
+        $("#producto").removeAttr("disabled");
+        $("#producto").empty()
+        axios.get('http://localhost:8080/producto/category/'+$("#categoria").val()).then(
+            resp =>{
+                $("#producto").append("<option value='' selected disabled>Seleccione</option>")
+                $(resp.data).each(function(index,item){
+                    $("#producto").append(`<option value="${item.id}">${item.nombre}</option>`)
+                })
+            }
+        )
+    }
 
     return (
 
@@ -62,10 +92,20 @@ const VenderArticulo = (props) => {
                         <b>Descripción adicional</b>
                         <CInput placeholder="Ejemplo: Tiene detalle en la pantalla, 3 meses de uso, etc"></CInput>                        
                     </CFormGroup>
-                    <CFormGroup>                                              
-                        <b>Categoría</b>
-                        <CInput placeholder="Ejemplo: Celulares"></CInput>                        
-                    </CFormGroup>                    
+                    <CRow>
+                        <CCol md="6">
+                            <b>Categoría</b>
+                            <select id="categoria" name="categoria" class="form-control" onChange={getProductos}>
+                                <option selected disabled>Seleccione</option>
+                            </select>
+                        </CCol>
+                        <CCol md="6">
+                            <b>Tipo Producto</b>
+                            <select id="producto" name="producto" class="form-control" disabled>
+                                <option selected disabled>Seleccione</option>
+                            </select>
+                        </CCol>
+                    </CRow>                   
                 </CCardBody>
             </CCard>
             <CCard>
