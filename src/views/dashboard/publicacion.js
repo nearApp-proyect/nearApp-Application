@@ -15,7 +15,7 @@ import {
 } from "@coreui/react";
 import axios from "axios";
 
-const UserPost = (props) => {
+const Publicacion = (props) => {
   const [imagenes,setImagenes]= useState([])
 
   useEffect(()=>{
@@ -58,7 +58,6 @@ const UserPost = (props) => {
           <div className="col-12 row justify-content-center">
             <small md="4" className="text-muted m-3">{props.post.fecha}</small>
             <small md="4" className="text-muted m-3">{props.post.ciudad}</small>
-            <small md="4" className="text-muted m-3">{(props.post.estado == 1) ? "Activo":"Inactivo"}</small>
           </div>
         </CCardFooter>
     </CCard>
@@ -73,4 +72,4 @@ const UserPost = (props) => {
   );
 };
 
-export default UserPost;
+export default Publicacion;

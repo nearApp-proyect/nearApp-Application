@@ -17,7 +17,7 @@ import Swal from 'sweetalert2'
 import $ from 'jquery';
 
 const EditUser = () => {
-
+  
   useEffect(()=>{
     getAllCitys();
     
@@ -66,11 +66,7 @@ const EditUser = () => {
       "celular": $("#celular").val(),
       "correo": $("#email").val(),
       "password": $("#password").val(),
-      "foto": "avatars/avatar.png",
-      "publicacion": [],
-      "cometario": [],
-      "chatEmi": [],
-      "chatRecep": []
+      "foto": "avatars/avatar.png"
     }
     axios.put('http://localhost:8080/user/update',data).then(
       resp=>{
@@ -105,11 +101,7 @@ const EditUser = () => {
       "celular": $("#celular").val(),
       "correo": $("#email").val(),
       "password": $("#password").val(),
-      "foto": "avatars/avatar.png",
-      "publicacion": [],
-      "cometario": [],
-      "chatEmi": [],
-      "chatRecep": []
+      "foto": "avatars/avatar.png"
     }
     if($("#password").val() == $("#passwordC").val()){
       axios.put('http://localhost:8080/user/update',data).then(

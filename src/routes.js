@@ -46,6 +46,7 @@ const AllOnline = React.lazy(() => import('./views/ventas/AllOnline'));
 
 const Profile = React.lazy(() => import('./views/usuario/profile')); 
 const EditUser = React.lazy(() => import('./views/usuario/editUser')); 
+const Publicaciones = React.lazy(() => import('./views/dashboard/publicaciones')); 
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -94,6 +95,7 @@ const routes = [
   { path: '/miPerfil', exact: true, name: 'Mi perfil', component: Profile},
   { path: '/miPerfil/editarUsuario', exact: true, name: 'Editar Usuario', component: EditUser}, 
   { path: '/ventaVivo', exact: true, name: 'Venta en vivo', component: AllOnline},
+  { path: '/categoria', exact: true, name: 'cateogria', component: Publicaciones},
 ];
 
 export default routes;

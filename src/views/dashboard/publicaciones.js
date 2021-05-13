@@ -1,18 +1,18 @@
 import axios from "axios";
 import React,{useEffect,useState} from "react";
-import UserPost from "./userPost";
+import Publicacion from "./publicacion";
 
 
-const UserPosts=() =>{
+const Publicaciones=(props) =>{
     const [publicacion,setPublicacion] = useState([])
     
     useEffect(()=>{
-        getAllUserPub()
+        getAllCategoriaPub()
     },[])
-
-    function getAllUserPub(){
-        let user = JSON.parse(localStorage.getItem('info'))
-        axios.get('http://localhost:8080/publicacion/user/'+user.nickname).then(resp=>{
+    
+    function getAllCategoriaPub(){
+        let categoria = parseInt(localStorage.getItem('categoria'))
+        axios.get('http://localhost:8080/publicacion/categoria/'+categoria).then(resp=>{
             setPublicacion(resp.data);
         })
     }
@@ -20,7 +20,7 @@ const UserPosts=() =>{
         <div className="col-12 col-sm-12 col-md-12 mt-4 row justify-content-center">    
             {
                 publicacion.map((product,index)=>
-                    <UserPost 
+                    <Publicacion 
                         key = {index}
                         post = {product}
                     />
@@ -30,4 +30,4 @@ const UserPosts=() =>{
     )
 }
 
-export default UserPosts;
+export default Publicaciones;

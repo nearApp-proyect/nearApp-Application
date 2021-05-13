@@ -140,10 +140,6 @@ const Register = () => {
       "correo": $("#email").val(),
       "password": $("#password").val(),
       "foto": "avatars/avatar.png",
-      "publicacion": [],
-      "cometario": [],
-      "chatEmi": [],
-      "chatRecep": []
     }
     axios.post('http://localhost:8080/user/new',data).then(
       resp=>{

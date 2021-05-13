@@ -81,6 +81,7 @@ const Profile = () => {
           <Link to="/miPerfil/editarUsuario" className="linkcreate"><CButton type="button" color="info">Editar</CButton></Link>
         </CCardFooter>
       </CCard>
+      {/*
       <CCardGroup className="mb-6">
         <CWidgetProgressIcon
           header="7"
@@ -101,6 +102,8 @@ const Profile = () => {
           <CIcon name="cil-chartPie" height="36" />
         </CWidgetProgressIcon>
       </CCardGroup>
+      */}
+      <h3 className="col-12 text-center m-2">Publicaciones Realizadas</h3>
       <UserPosts></UserPosts>
     </div>
   );
