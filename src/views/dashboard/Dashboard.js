@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {
   CButton,
   CCard,
@@ -13,15 +13,28 @@ import {
   CCarouselInner,
   CCarouselControl,
   CCarouselItem,
-  CCarouselIndicators
+  CCarouselIndicators,
+  CBreadcrumb,
+  CBreadcrumbItem,
+  CBreadcrumbRouter,
+  CLink,
+  CCardFooter
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react';
 import { freeSet } from '@coreui/icons';
 import { Link } from 'react-router-dom';
+import Publicaciones from './publicaciones';
+import axios from 'axios'
+import Swal from 'sweetalert2'
+import $, { nodeName } from 'jquery';
 
 const Dashboard = () => {
-  return (
 
+  function getPublicaciones(id){
+    console.log("didddddd: "+id)
+    localStorage.setItem('categoria',id);
+  }
+  return (
     <CCol>
       <CFormGroup>
         <CRow>
@@ -42,6 +55,57 @@ const Dashboard = () => {
           </CRow>
         </CCardBody>
       </CCard>
+      <CRow>
+      <CCol xs="12">
+        <CCard>
+          <CCardHeader>
+            CATEGORIAS           
+          </CCardHeader>
+          <CCardBody>
+            <Link to="/categoria" className="linkcreate" >
+                <CButton type="button" color="info" onClick={getPublicaciones(1)}>VEHICULOS</CButton>
+            </Link> 
+            <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(2)}>
+                  <CButton type="button" color="info" >INMUEBLES</CButton>
+                </Link> 
+                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(3)}>
+                  <CButton type="button" color="info" >TELEFONOS-TABLETS</CButton>
+                </Link> 
+                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(4)}>
+                  <CButton type="button" color="info" >TV-AUDIO-VIDEO-CAMARAS</CButton>
+                </Link> 
+                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(5)}>
+                  <CButton type="button" color="info" >COMPUTADORES-PORTATILES</CButton>
+                </Link> 
+                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(6)}>
+                  <CButton type="button" color="info" >VIDEO JUEGOS-CONSOLAS</CButton>
+                </Link> 
+                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(7)}>
+                  <CButton type="button" color="info" >HOGAR</CButton>
+                </Link> 
+                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(8)}>
+                  <CButton type="button" color="info" >ELECTRODOMESTICOS</CButton>
+                </Link>
+                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(9)}>
+                  <CButton type="button" color="info" >DEPORTES</CButton>
+                </Link> 
+                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(10)}>
+                  <CButton type="button" color="info" >JUGUETES</CButton>
+                </Link> 
+                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(11)}>
+                  <CButton type="button" color="info" >MODA-BELLEZA</CButton>
+                </Link>  
+                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(12)}>
+                  <CButton type="button" color="info" >MAQUINARIA-HERRAMIENTA</CButton>
+                </Link>
+                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(13)}>
+                  <CButton type="button" color="info" >HOBBIES-MUSICA-ARTE</CButton>
+                </Link>  
+            
+          </CCardBody>
+        </CCard>
+      </CCol>
+    </CRow>
       <CCard>
         <CCardHeader>
           <h3>Productos destacados</h3>
@@ -74,31 +138,7 @@ const Dashboard = () => {
           </CCarousel>
         </CCardBody>
       </CCard>
-      <CCard>
-        <CCardHeader>
-          <h3>Categorias populares</h3>
-        </CCardHeader>
-        <CCardBody>
-          <CFormGroup>
-            <CRow>
-              <CCol><CButton style={{ width: `80%` }} size="lg" variant="outline" color="primary"><CCol>Jugueteria</CCol><CCol><CIcon content={freeSet.cilLocomotive} size="lg" /></CCol></CButton></CCol>
-              <CCol><CButton style={{ width: `80%` }} size="lg" variant="outline" color="primary"><CCol>Deportes</CCol><CCol><CIcon content={freeSet.cilFootball} size="lg" /></CCol></CButton></CCol>
-              <CCol><CButton style={{ width: `80%` }} size="lg" variant="outline" color="primary"><CCol>Videojuegos</CCol><CCol><CIcon content={freeSet.cilGamepad} size="lg" /></CCol></CButton></CCol>
-              <CCol><CButton style={{ width: `80%` }} size="lg" variant="outline" color="primary"><CCol>Mascotas</CCol><CCol><CIcon content={freeSet.cilAnimal} size="lg" /></CCol></CButton></CCol>
-              <CCol><CButton style={{ width: `80%` }} size="lg" variant="outline" color="primary"><CCol>Celulares</CCol><CCol><CIcon content={freeSet.cilMobile} size="lg" /></CCol></CButton></CCol>
-            </CRow>
-          </CFormGroup>
-          <CFormGroup>
-            <CRow>
-              <CCol><CButton style={{ width: `80%` }} size="lg" variant="outline" color="primary"><CCol>Infantil</CCol><CCol><CIcon content={freeSet.cilChild} size="lg" /></CCol></CButton></CCol>
-              <CCol><CButton style={{ width: `80%` }} size="lg" variant="outline" color="primary"><CCol>Muebles</CCol><CCol><CIcon content={freeSet.cilCouch} size="lg" /></CCol></CButton></CCol>
-              <CCol><CButton style={{ width: `80%` }} size="lg" variant="outline" color="primary"><CCol>Electrónica</CCol><CCol><CIcon content={freeSet.cilMicrophone} size="lg" /></CCol></CButton></CCol>
-              <CCol><CButton style={{ width: `80%` }} size="lg" variant="outline" color="primary"><CCol>Baño</CCol><CCol><CIcon content={freeSet.cilBath} size="lg" /></CCol></CButton></CCol>
-              <CCol><CButton style={{ width: `80%` }} size="lg" variant="outline" color="primary"><CCol>Bicicletas</CCol><CCol><CIcon content={freeSet.cilBike} size="lg" /></CCol></CButton></CCol>
-            </CRow>
-          </CFormGroup>
-        </CCardBody>
-      </CCard>
+      
 
     </CCol>
 
