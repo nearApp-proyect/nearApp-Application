@@ -55,7 +55,7 @@ const Publicacion = (props) => {
             const hours = Math.floor(distance % (1000 * 60 * 60 * 24)/(1000 * 60 * 60))
             const minutes = Math.floor(distance % (1000 * 60 * 60)/(1000 * 60))
             const seconds = Math.floor(distance % (1000 * 60)/1000)
-            
+
             if ( distance < 0){
                 clearInterval(interval.current)
             }else{
@@ -88,7 +88,7 @@ const Publicacion = (props) => {
             "descuento":props.post.descuento-5,
             "hora": props.post.hora
         }
-        axios.put('http://localhost:8080/publicacion/update',data).then(resp=>{
+        axios.put('http://localhost:8080/publicacion/descuento',data).then(resp=>{
             if(props.post.idpublicacion == resp.data.idpublicacion){
                 setDesc(resp.data.descuento)
             }
