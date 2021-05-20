@@ -73,6 +73,10 @@ const Profile = () => {
                     <b>Tarjeta Registrada: </b>
                     xxxx.xxxx.xxxx.5646
                 </p>
+                <p className="border">
+                    <b>Subscripción: </b>
+                    Near+
+                </p>
               </div>
             </CCol>
           </CRow>

@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import {
   CButton,
   CCard,
@@ -31,9 +31,9 @@ import $, { nodeName } from 'jquery';
 
 const Dashboard = () => {
 
-  function getPublicaciones(id){
-    console.log("didddddd: "+id)
-    localStorage.setItem('categoria',id);
+  function getPublicaciones(id) {
+    console.log("didddddd: " + id)
+    localStorage.setItem('categoria', id);
   }
   return (
     <CCol>
@@ -57,56 +57,80 @@ const Dashboard = () => {
         </CCardBody>
       </CCard>
       <CRow>
-      <CCol xs="12">
-        <CCard>
-          <CCardHeader>
-            CATEGORIAS           
+        <CCol xs="12">
+          <CCard>
+            <CCardHeader>
+              CATEGORIAS
           </CCardHeader>
-          <CCardBody>
-            <Link to="/categoria" className="linkcreate" >
-                <CButton type="button" color="info" onClick={getPublicaciones(1)}>VEHICULOS</CButton>
-            </Link> 
-            <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(2)}>
-                  <CButton type="button" color="info" >INMUEBLES</CButton>
-                </Link> 
-                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(3)}>
-                  <CButton type="button" color="info" >TELEFONOS-TABLETS</CButton>
-                </Link> 
-                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(4)}>
-                  <CButton type="button" color="info" >TV-AUDIO-VIDEO-CAMARAS</CButton>
-                </Link> 
-                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(5)}>
-                  <CButton type="button" color="info" >COMPUTADORES-PORTATILES</CButton>
-                </Link> 
-                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(6)}>
-                  <CButton type="button" color="info" >VIDEO JUEGOS-CONSOLAS</CButton>
-                </Link> 
-                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(7)}>
-                  <CButton type="button" color="info" >HOGAR</CButton>
-                </Link> 
-                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(8)}>
-                  <CButton type="button" color="info" >ELECTRODOMESTICOS</CButton>
-                </Link>
-                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(9)}>
-                  <CButton type="button" color="info" >DEPORTES</CButton>
-                </Link> 
-                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(10)}>
-                  <CButton type="button" color="info" >JUGUETES</CButton>
-                </Link> 
-                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(11)}>
-                  <CButton type="button" color="info" >MODA-BELLEZA</CButton>
-                </Link>  
-                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(12)}>
-                  <CButton type="button" color="info" >MAQUINARIA-HERRAMIENTA</CButton>
-                </Link>
-                <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(13)}>
-                  <CButton type="button" color="info" >HOBBIES-MUSICA-ARTE</CButton>
-                </Link>  
-            
-          </CCardBody>
-        </CCard>
-      </CCol>
-    </CRow>
+            <CCardBody>
+              <CFormGroup row>
+                <CCol>
+                  <Link to="/categoria" className="linkcreate" >
+                    <CButton style={{ width: `100%`, height: `100%` }} type="button" color="info" onClick={getPublicaciones(1)}><CCol>VEHICULOS</CCol><CCol><CIcon size="lg" content={freeSet.cilCarAlt} /></CCol></CButton>
+                  </Link>
+                </CCol>
+                <CCol>
+                  <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(3)}>
+                    <CButton style={{ width: `100%`, height: `100%`  }} type="button" color="info" ><CCol>TELEFONOS-TABLETS</CCol><CCol><CIcon size="lg" content={freeSet.cilScreenSmartphone} /></CCol></CButton>
+                  </Link>
+                </CCol>
+                <CCol>
+                  <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(4)}>
+                    <CButton style={{ width: `100%`, height: `100%`  }} type="button" color="info" ><CCol>TV-AUDIO-VIDEO</CCol><CCol><CIcon size="lg" content={freeSet.cilTv} /></CCol></CButton>
+                  </Link>
+                </CCol>
+                <CCol>
+                  <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(5)}>
+                    <CButton style={{ width: `100%`, height: `100%`  }} type="button" color="info" ><CCol>COMPUTADORES-PORTATILES</CCol><CCol><CIcon size="lg" content={freeSet.cilScreenDesktop} /></CCol></CButton>
+                  </Link>
+                </CCol>
+                <CCol>
+                  <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(6)}>
+                    <CButton style={{ width: `100%`, height: `100%`  }} type="button" color="info" ><CCol>VIDEO JUEGOS-CONSOLAS</CCol><CCol><CIcon size="lg" content={freeSet.cilVideogame} /></CCol></CButton>
+                  </Link>
+                </CCol>
+                <CCol>
+                  <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(7)}>
+                    <CButton style={{ width: `100%`, height: `100%`  }} type="button" color="info" ><CCol>HOGAR</CCol><CCol><CIcon size="lg" content={freeSet.cilHome} /></CCol></CButton>
+                  </Link>
+                </CCol>
+              </CFormGroup>
+              <CFormGroup row>
+                <CCol>
+                  <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(8)}>
+                    <CButton style={{ width: `100%`, height: `100%`  }} type="button" color="info" ><CCol>ELECTRODOMESTICOS</CCol><CCol><CIcon size="lg" content={freeSet.cilFridge} /></CCol></CButton>
+                  </Link>
+                </CCol>
+                <CCol>
+                  <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(9)}>
+                    <CButton style={{ width: `100%`, height: `100%`  }} type="button" color="info" ><CCol>DEPORTES</CCol><CCol><CIcon size="lg" content={freeSet.cilFootball} /></CCol></CButton>
+                  </Link>
+                </CCol>
+                <CCol>
+                  <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(10)}>
+                    <CButton style={{ width: `100%`, height: `100%`  }} type="button" color="info" ><CCol>JUGUETES</CCol><CCol><CIcon size="lg" content={freeSet.cilLocomotive} /></CCol></CButton>
+                  </Link>
+                </CCol>
+                <CCol>
+                  <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(11)}>
+                    <CButton style={{ width: `100%`, height: `100%`  }} type="button" color="info" ><CCol>MODA-BELLEZA</CCol><CCol><CIcon size="lg" content={freeSet.cilContact} /></CCol></CButton>
+                  </Link>
+                </CCol>
+                <CCol>
+                  <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(12)}>
+                    <CButton style={{ width: `100%`, height: `100%`  }} type="button" color="info" ><CCol>MAQUINARIA-HERRAMIENTA</CCol><CCol><CIcon size="lg" content={freeSet.cilVector} /></CCol></CButton>
+                  </Link>
+                </CCol>
+                <CCol>
+                  <Link to="/categoria" className="linkcreate" onClick={getPublicaciones(13)}>
+                    <CButton style={{ width: `100%`, height: `100%`  }} type="button" color="info" ><CCol>HOBBIES-MUSICA-ARTE</CCol><CCol><CIcon size="lg" content={freeSet.cilSmile} /></CCol></CButton>
+                  </Link>
+                </CCol>
+              </CFormGroup>
+            </CCardBody>
+          </CCard>
+        </CCol>
+      </CRow>
       <CCard>
         <CCardHeader>
           <h3>Productos destacados</h3>

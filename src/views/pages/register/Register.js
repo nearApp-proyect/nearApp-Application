@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   CButton,
   CCard,
@@ -6,12 +6,15 @@ import {
   CCol,
   CContainer,
   CForm,
+  CFormGroup,
   CInput,
   CInputGroup,
   CInputGroupPrepend,
   CInputGroupText,
   CRow,
   CSelect,
+  CInputRadio,
+  CLabel
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
@@ -20,28 +23,28 @@ import Swal from 'sweetalert2'
 import $ from 'jquery';
 import Validation from 'jquery-validation';
 
-var listCitys=[]
+var listCitys = []
 
 const Register = () => {
   //const [ciudades, setCiudades] = useState([])
-  
-  useEffect(()=>{
-    getAllCitys()
-  },[]);
 
-  function getAllCitys(){
+  useEffect(() => {
+    getAllCitys()
+  }, []);
+
+  function getAllCitys() {
     axios.get('https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.min.json').then(
-      resp =>{
+      resp => {
         console.log(JSON.stringify(resp.data))
-        $(resp.data).each(function(index,value){
-          $(value.ciudades).each(function(ind,item){
+        $(resp.data).each(function (index, value) {
+          $(value.ciudades).each(function (ind, item) {
             $("#ciudad").append(`<option value="${item}">${item}</option>`)
           })
         })
       }
     )
   }
-  function saveUser(){
+  function saveUser() {
     /**
     var validator= $("#formRegister").validate({
       rules: {
@@ -127,8 +130,8 @@ const Register = () => {
         showConfirmButton: false
       })
     }
-    */        
-    let data ={
+    */
+    let data = {
       "nickname": $("#user").val(),
       "tdocumento": $("#tipoDoc").val(),
       "documento": $("#documento").val(),
@@ -141,135 +144,135 @@ const Register = () => {
       "password": $("#password").val(),
       "foto": "avatars/avatar.png",
     }
-    axios.post('http://localhost:8080/user/new',data).then(
-      resp=>{
-        if(resp.data.nickname == $("#user").val()){
+    axios.post('http://localhost:8080/user/new', data).then(
+      resp => {
+        if (resp.data.nickname == $("#user").val()) {
           Swal.fire({
-            icon:'success',
-            text:'Registro realizado con exito',
+            icon: 'success',
+            text: 'Registro realizado con exito',
             showConfirmButton: false,
             timer: 2500
           })
-          setTimeout(function(){
-            window.location.href="/"
-          },2500)
-        }else{
+          setTimeout(function () {
+            window.location.href = "/"
+          }, 2500)
+        } else {
 
         }
       }
-    ) 
+    )
   }
-  
+
   return (
     <div className="c-app c-default-layout flex-row align-items-center col-12">
       <CContainer>
-        
-          <CRow className="justify-content-center">
-            <CCol md="12" lg="12" xl="12">
-              <CCard className="mx-4">
-                <CCardBody className="p-4">
-                  <CForm id="formRegister" className="row justify-content-center">
-                    <h1 className="col-12">Registrar</h1>
-                    <p className="text-muted col-12">Crea tu nueva cuenta</p>
-                    <div className="col-12 col-sm-12 col-md-12 row justify-content-center border border-dark p-4 m-3">
-                      <h3 className="col-12">Información Principal</h3>
-                      <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
-                          <CInputGroupPrepend>
-                            <CInputGroupText>
-                              <CIcon name="cil-user" />
-                            </CInputGroupText>
-                          </CInputGroupPrepend>
-                          <CSelect 
-                            custom 
-                            name="tipoDoc" 
-                            id="tipoDoc" 
-                            autoComplete="name"
-                          >
-                            <option selected disabled value="">Tipo de Documento</option>
-                            <option value="CC">Cedula Ciudadania</option>
-                            <option value="CE">Cedula Extranjera</option>
-                            <option value="PA">Pasaporte</option>
-                          </CSelect>
-                      </CInputGroup>                    
-                      <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
-                        <CInputGroupPrepend>
-                          <CInputGroupText>
-                            <CIcon name="cil-user" />
-                          </CInputGroupText>
-                        </CInputGroupPrepend>
-                        <CInput type="number" name="documento" 
-                            id="documento"  placeholder="Documento" autoComplete="documento" />
-                      </CInputGroup>
-                      <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
-                        <CInputGroupPrepend>
-                          <CInputGroupText>
-                            <CIcon name="cil-user" />
-                          </CInputGroupText>
-                        </CInputGroupPrepend>
-                        <CInput type="text" name="nombre" 
-                            id="nombre" placeholder="Nombre" autoComplete="nombre" />
-                      </CInputGroup>
-                      <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
-                        <CInputGroupPrepend>
-                          <CInputGroupText>
-                            <CIcon name="cil-user" />
-                          </CInputGroupText>
-                        </CInputGroupPrepend>
-                        <CInput type="text" name="apellido" 
-                            id="apellido" placeholder="Apellido" autoComplete="apellido" />
-                      </CInputGroup>
-                      <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
-                        <CInputGroupPrepend>
-                          <CInputGroupText>
-                            <CIcon name="cil-user" />
-                          </CInputGroupText>
-                        </CInputGroupPrepend>
-                        <CInput type="text" placeholder="Dirección" id="direccion" name="direccion" autoComplete="direccion" />
-                      </CInputGroup>
-                      <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
-                        <CInputGroupPrepend>
-                          <CInputGroupText>
-                            <CIcon name="cil-user" />
-                          </CInputGroupText>
-                        </CInputGroupPrepend>
-                        <CInput type="number" id="celular" name="celular" placeholder="Celular" autoComplete="celular"/>
-                      </CInputGroup>
-                      <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
-                        <CInputGroupPrepend>
-                          <CInputGroupText>
-                            <CIcon name="cil-user" />
-                          </CInputGroupText>
-                        </CInputGroupPrepend>
-                        <CSelect custom name="ciudad" id="ciudad">
-                          <option selected disabled value="">Ciudad</option>
-                        </CSelect>
-                      </CInputGroup>
-                    </div>
-                    <div className="col-12 col-sm-12 col-md-12 row justify-content-center border border-dark p-4 m-3">
-                      <h3 className="col-12">Información de Usuario</h3>
-                      <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
-                        <CInputGroupPrepend>
-                          <CInputGroupText>
-                            <CIcon name="cil-user" />
-                          </CInputGroupText>
-                        </CInputGroupPrepend>
-                        <CInput type="text" id="user" name="user" placeholder="Usuario" autoComplete="username" />
-                      </CInputGroup>
-                      <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
-                        <CInputGroupPrepend>
-                          <CInputGroupText>@</CInputGroupText>
-                        </CInputGroupPrepend>
-                        <CInput id="email" name="email" type="text" placeholder="Email" autoComplete="email" />
-                      </CInputGroup>
-                      <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
-                        <CInputGroupPrepend>
-                          <CInputGroupText>
-                            <CIcon name="cil-lock-locked" />
-                          </CInputGroupText>
-                        </CInputGroupPrepend>
-                        <CInput type="password" id="password" name="passwordPrinc" placeholder="Contraseña" autoComplete="new-password" />
-                      </CInputGroup>
-                      <CInputGroup className="mb-4 col-sm-6 col-md-6 col-12">
+
+        <CRow className="justify-content-center">
+          <CCol md="12" lg="12" xl="12">
+            <CCard className="mx-4">
+              <CCardBody className="p-4">
+                <CForm id="formRegister" className="row justify-content-center">
+                  <h1 className="col-12">Registrar</h1>
+                  <p className="text-muted col-12">Crea tu nueva cuenta</p>
+                  <div className="col-12 col-sm-12 col-md-12 row justify-content-center border border-dark p-4 m-3">
+                    <h3 className="col-12">Información Principal</h3>
+                    <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
+                      <CInputGroupPrepend>
+                        <CInputGroupText>
+                          <CIcon name="cil-user" />
+                        </CInputGroupText>
+                      </CInputGroupPrepend>
+                      <CSelect
+                        custom
+                        name="tipoDoc"
+                        id="tipoDoc"
+                        autoComplete="name"
+                      >
+                        <option selected disabled value="">Tipo de Documento</option>
+                        <option value="CC">Cedula Ciudadania</option>
+                        <option value="CE">Cedula Extranjera</option>
+                        <option value="PA">Pasaporte</option>
+                      </CSelect>
+                    </CInputGroup>
+                    <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
+                      <CInputGroupPrepend>
+                        <CInputGroupText>
+                          <CIcon name="cil-user" />
+                        </CInputGroupText>
+                      </CInputGroupPrepend>
+                      <CInput type="number" name="documento"
+                        id="documento" placeholder="Documento" autoComplete="documento" />
+                    </CInputGroup>
+                    <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
+                      <CInputGroupPrepend>
+                        <CInputGroupText>
+                          <CIcon name="cil-user" />
+                        </CInputGroupText>
+                      </CInputGroupPrepend>
+                      <CInput type="text" name="nombre"
+                        id="nombre" placeholder="Nombre" autoComplete="nombre" />
+                    </CInputGroup>
+                    <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
+                      <CInputGroupPrepend>
+                        <CInputGroupText>
+                          <CIcon name="cil-user" />
+                        </CInputGroupText>
+                      </CInputGroupPrepend>
+                      <CInput type="text" name="apellido"
+                        id="apellido" placeholder="Apellido" autoComplete="apellido" />
+                    </CInputGroup>
+                    <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
+                      <CInputGroupPrepend>
+                        <CInputGroupText>
+                          <CIcon name="cil-user" />
+                        </CInputGroupText>
+                      </CInputGroupPrepend>
+                      <CInput type="text" placeholder="Dirección" id="direccion" name="direccion" autoComplete="direccion" />
+                    </CInputGroup>
+                    <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
+                      <CInputGroupPrepend>
+                        <CInputGroupText>
+                          <CIcon name="cil-user" />
+                        </CInputGroupText>
+                      </CInputGroupPrepend>
+                      <CInput type="number" id="celular" name="celular" placeholder="Celular" autoComplete="celular" />
+                    </CInputGroup>
+                    <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
+                      <CInputGroupPrepend>
+                        <CInputGroupText>
+                          <CIcon name="cil-user" />
+                        </CInputGroupText>
+                      </CInputGroupPrepend>
+                      <CSelect custom name="ciudad" id="ciudad">
+                        <option selected disabled value="">Ciudad</option>
+                      </CSelect>
+                    </CInputGroup>
+                  </div>
+                  <div className="col-12 col-sm-12 col-md-12 row justify-content-center border border-dark p-4 m-3">
+                    <h3 className="col-12">Información de Usuario</h3>
+                    <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
+                      <CInputGroupPrepend>
+                        <CInputGroupText>
+                          <CIcon name="cil-user" />
+                        </CInputGroupText>
+                      </CInputGroupPrepend>
+                      <CInput type="text" id="user" name="user" placeholder="Usuario" autoComplete="username" />
+                    </CInputGroup>
+                    <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
+                      <CInputGroupPrepend>
+                        <CInputGroupText>@</CInputGroupText>
+                      </CInputGroupPrepend>
+                      <CInput id="email" name="email" type="text" placeholder="Email" autoComplete="email" />
+                    </CInputGroup>
+                    <CInputGroup className="mb-3 col-sm-6 col-md-6 col-12">
+                      <CInputGroupPrepend>
+                        <CInputGroupText>
+                          <CIcon name="cil-lock-locked" />
+                        </CInputGroupText>
+                      </CInputGroupPrepend>
+                      <CInput type="password" id="password" name="passwordPrinc" placeholder="Contraseña" autoComplete="new-password" />
+                    </CInputGroup>
+                    <CInputGroup className="mb-4 col-sm-6 col-md-6 col-12">
                       <CInputGroupPrepend>
                         <CInputGroupText>
                           <CIcon name="cil-lock-locked" />
@@ -277,15 +280,42 @@ const Register = () => {
                       </CInputGroupPrepend>
                       <CInput type="password" id="passwordC" name="passwordResp" placeholder="Repetir contraseña" autoComplete="new-password" />
                     </CInputGroup>
-                    </div>   
-                    <div className="col-12 row justify-content-center">
-                      <CButton onClick={saveUser} className="col-6" color="success" block>Crear</CButton>
-                    </div>                                 
-                  </CForm>
-                </CCardBody>
-              </CCard>
-            </CCol>
-          </CRow>
+                  </div>
+                  <div className="col-12 col-sm-12 col-md-12 row justify-content-center border border-dark p-4 m-3">
+                    <h3 className="col-12">Subscripción</h3>
+                    <CFormGroup row>
+                      <CCol sm="12">
+                        <CFormGroup variant="custom-radio" inline>
+                          <CInputRadio custom id="inline-radio1" name="inline-radios" value="1" />
+                          <CLabel variant="custom-checkbox" htmlFor="inline-radio1">
+                            <b>Básica</b>
+                            <CCol sm="12" className="text-justify">Puedes hacer 20 publicaciones al mes, de cualquier tipo de publicación que NearApp te ofrece, 
+                            realizar compras y ventas normalmente en cualquier categoría.
+                            </CCol>
+                          </CLabel>
+                        </CFormGroup>
+                      </CCol>
+                      <CCol sm="12">
+                        <CFormGroup variant="custom-radio" inline>
+                          <CInputRadio custom id="inline-radio2" name="inline-radios" value="2" />
+                          <CLabel variant="custom-checkbox" htmlFor="inline-radio2">
+                            <b>Near+</b>
+                            <CCol sm="12" className="text-justify">Permite publicaciones ilimitadas de cualquier, además puedes acumular descuentos por cada compra y venta, para
+                            usarla en productos después de determinada cantidad de cualquier categoría.
+                            </CCol>
+                          </CLabel>
+                        </CFormGroup>
+                      </CCol>
+                    </CFormGroup>
+                  </div>
+                  <div className="col-12 row justify-content-center">
+                    <CButton onClick={saveUser} className="col-6" color="success" block>Crear</CButton>
+                  </div>
+                </CForm>
+              </CCardBody>
+            </CCard>
+          </CCol>
+        </CRow>
       </CContainer>
     </div>
   )
