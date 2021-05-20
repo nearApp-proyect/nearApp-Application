@@ -24,6 +24,7 @@ import CIcon from '@coreui/icons-react';
 import { freeSet } from '@coreui/icons';
 import { Link } from 'react-router-dom';
 import Publicaciones from './publicaciones';
+import PostFast from './postFast';
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import $, { nodeName } from 'jquery';
@@ -111,35 +112,9 @@ const Dashboard = () => {
           <h3>Productos destacados</h3>
         </CCardHeader>
         <CCardBody>
-          <CCarousel style={{ width: `35%` }} animate autoSlide={3000}>
-            <CCarouselIndicators />
-            <CCarouselInner>
-              <CCarouselItem>
-                <Link to='/comprarArticulo' className="linkcreate">
-                  <img className="d-block w-100" src={"https://cdn.mos.cms.futurecdn.net/3KzX4FcFRu3nvFeyQp5AgP.jpg"} alt="slide 1" />
-                  <CCarouselCaption><h3>Samsung Galaxy S10+</h3><p>Azul 512GB 8GB</p></CCarouselCaption>
-                </Link>
-              </CCarouselItem>
-              <CCarouselItem>
-                <Link to='/comprarArticulo' className="linkcreate">
-                  <img className="d-block w-100" src={"https://images-na.ssl-images-amazon.com/images/I/81eYyHNvKFL._AC_UL1500_.jpg"} alt="slide 2" />
-                  <CCarouselCaption><h3>Adidas Kaptur Sneaker</h3><p>Gris Suela Sintética</p></CCarouselCaption>
-                </Link>
-              </CCarouselItem>
-              <CCarouselItem>
-                <Link to='/comprarArticulo' className="linkcreate">
-                  <img className="d-block w-100" src={"https://5.imimg.com/data5/TI/HF/KO/ANDROID-84375669/product-jpeg-500x500.jpg"} alt="slide 3" />
-                  <CCarouselCaption><h3>BMW Blue Folding Sports Bicycle</h3><p>Azul Frenos de disco</p></CCarouselCaption>
-                </Link>
-              </CCarouselItem>
-            </CCarouselInner>
-            <CCarouselControl direction="prev" />
-            <CCarouselControl direction="next" />
-          </CCarousel>
+          <PostFast></PostFast>
         </CCardBody>
       </CCard>
-      
-
     </CCol>
 
   )

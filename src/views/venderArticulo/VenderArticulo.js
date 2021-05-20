@@ -69,7 +69,9 @@ const VenderArticulo = (props) => {
             "tipopublicacion": parseInt($("input:radio[name=inline-radios]:checked").val()),
             "tipoproducto": parseInt($("#producto").val()),
             "usuario": usuario.nickname,
-            "estado": 1
+            "estado": 1,
+            "descuento":40,
+            "hora": fecha.getHours()+":"+fecha.getMinutes()+":"+fecha.getSeconds()
         }
         axios.post('http://localhost:8080/publicacion/new',data).then(resp=>{
             if(resp.data.idpublicacion != null){
@@ -192,7 +194,7 @@ const VenderArticulo = (props) => {
                         <CRow>
                             <CCol sm="1"><b>Marca</b></CCol>
                             <CCol><CInput id="marca" placeholder="Ejemplo: Samsung"></CInput></CCol>
-                            <CCol sm="1"><b>Modelo</b></CCol>
+                            <CCol sm="2"><b>Modelo</b></CCol>
                             <CCol><CInput id="modelo" placeholder="Ejemplo: Galaxy S9"></CInput></CCol>
                             <CCol sm="1"><b>Datos</b></CCol>
                             <CCol><CInput id="datos" placeholder="Ejemplo: 64 GB, 6 RAM"></CInput></CCol>
@@ -202,7 +204,7 @@ const VenderArticulo = (props) => {
                         <CRow>
                             <CCol sm="1"><b>Color</b></CCol>
                             <CCol><CInput id="color" placeholder="Ejemplo: Negro"></CInput></CCol>
-                            <CCol sm="1"><b>Estado</b></CCol>
+                            <CCol sm="2"><b>Estado</b></CCol>
                             <CCol>
                                 <CSelect id="estado">
                                     <option value="Nuevo">Nuevo</option>
